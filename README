@@ -1,0 +1,1 @@
+Calculate the optimal rates and expected runtime for different levels of security (-> calculate_time_rates.py) and plot them (-> generate_figure.py)
