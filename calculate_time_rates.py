@@ -19,10 +19,10 @@ Topt = np.zeros((u.size,mu.size))			# Allocate memory
 for j in range(0,int(u.size)):				# For all values in u
 	for i in range(0,int(mu.size)):			# For all mu
 		kopt[j][i],Topt[j][i] = find_optimal_rate(n,u[j],mu[i])		# Calculate the optimal value of k and the achieved time T
-		print 'Progress: '+ str((i+1)*100./mu.size) + "% of run " + str(j+1) + "/" + str(u.size)	# Output the progress to the console
+		print('Progress: '+ str((i+1)*100./mu.size) + "% of run " + str(j+1) + "/" + str(u.size))	# Output the progress to the console
 
-with open(filename,'w') as f:				# Open the file
+with open(filename,'wb') as f:				# Open the file
 	pickle.dump([u/n,mu,np.array(kopt)*1./n,n*np.array(Topt)],f)	# Store the data
 
 
-print 'Prozess finished. Result is stored in ' + filename			# Print filename to console
+print('Prozess finished. Result is stored in ' + filename)			# Print filename to console

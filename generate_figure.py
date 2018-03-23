@@ -2,10 +2,10 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
 import pickle
 
-filename = 'koptTopt12:56PM_on_March_23_2018'		# Name of file with stored data
+filename = "koptTopt12:36AM_on_March_24_2018"		# Name of file with stored data
 
 
-with open(filename,'r') as f:						# Open the file with stored data
+with open(filename,'rb') as f:						# Open the file with stored data
 	u,mu,kopt,Topt = pickle.load(f)					# Load the data
 	
 
