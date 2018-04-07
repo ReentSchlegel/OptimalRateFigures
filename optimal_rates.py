@@ -3,12 +3,13 @@ from scipy.integrate import simps
 import numpy as np
 
 
-def find_optimal_rate(n,u,mu):
+def find_optimal_rate(n,u,mu,rs):
 	# Input:
 	#
 	# n 	: code length
 	# u 	: security level
 	# mu	: straggling parameter
+	# rs	: dimension of A  
 	#
 	# Output (k,Topt):
 	# k 	: code dimension (k/n is optimal coderate)
@@ -27,7 +28,7 @@ def find_optimal_rate(n,u,mu):
 
 	for k in range(u+1,n):		# For all k in the range of u < k < n
 		t = np.linspace(1./(k-u), k*(n-k+10)*5./((k-u)*n*mu*(n-k+1))+1./(k-u),200)	# Define 200 evaluation points where the integrand is not zero 
-		T[k-u-1] = simps(expected_value_function(t,k),t)							# Integrate over expected_value_function
+		T[k-u-1] = simps(expected_value_function(t,k),t)*(1 + ((n**2*(n-k-1)*(k-u))/(rs*k)))	# Integrate over expected_value_function + decoding time
 	
 	Topt = min(T)				# Optimal expected waiting time
 	k = T.index(Topt) + u + 1	# Code dimension corresponding to Topt 
