@@ -5,7 +5,7 @@ import datetime
 
 
 
-filename = 'koptTopt' + datetime.datetime.today().strftime("%I:%M%p_on_%B_%d_%Y")					# Name of file for the data to store
+filename = 'koptToptDifferentSecurity' + datetime.datetime.today().strftime("%I:%M%p_on_%B_%d_%Y")	# Name of file for the data to store
 
 
 n = 100										# Number of groups
@@ -23,7 +23,7 @@ for j in range(0,int(u.size)):				# For all values in u
 		print('Progress: '+ str((i+1)*100./mu.size) + "% of run " + str(j+1) + "/" + str(u.size))	# Output the progress to the console
 
 with open(filename,'wb') as f:				# Open the file
-	pickle.dump([u/n,mu,np.array(kopt)*1./n,n*np.array(Topt)],f)	# Store the data
+	pickle.dump([u/n,rs,mu,np.array(kopt)*1./n,n*np.array(Topt)],f)	# Store the data
 
 
 print('Prozess finished. Result is stored in ' + filename)			# Print filename to console
