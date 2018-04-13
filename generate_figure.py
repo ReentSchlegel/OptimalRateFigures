@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import pickle
 
-filename = "koptToptDifferentSize02:42PM_on_April_09_2018"		# Name of file with stored data
+filename = "koptToptDifferentSize11:13AM_on_April_13_2018"		# Name of file with stored data
 
 
 with open(filename,'rb') as f:						# Open the file with stored data

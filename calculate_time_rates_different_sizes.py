@@ -19,7 +19,7 @@ Topt = np.zeros((rs.size,mu.size))			# Allocate memory
 
 for j in range(0,int(rs.size)):				# For all values in u
 	for i in range(0,int(mu.size)):			# For all mu
-		kopt[j][i],Topt[j][i] = find_optimal_rate(n,u,mu[i],rs[j])	# Calculate the optimal value of k and the achieved time T
+		kopt[j][i],Topt[j][i] = find_optimal_rate(n,u,mu[i]*rs[-1]/rs[j],rs[j])	# Calculate the optimal value of k and the achieved time T
 		print('Progress: '+ str((i+1)*100./mu.size) + "% of run " + str(j+1) + "/" + str(rs.size))	# Output the progress to the console
 
 with open(filename,'wb') as f:				# Open the file
